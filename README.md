@@ -35,14 +35,12 @@ python make-dataset.py --proj_dir path/to/project-directory --chips path/to/c2sm
 * Google Earth Engine cloud project id is needed here.
 ```bash
 python gee-dem-data.py --cld_projid ee-xxxxxxx --in_dir data/chips/VV  --out_dir data
-```
-```bash
 python gee-pwater-data.py --cld_projid ee-xxxxxxx --in_dir data/chips/VV  --out_dir data
 ```
 * gee-dem-data.py and gee-pwater-data.py scripts will create data/dem and data/pwater directories respectively.
 
 #### Step 3
-make-features.ipynb notebook will create CSV files, which includes the file paths of S1-VV, S1-VH, DEM, JRC water, and Water labels chips for the model training.
+* make-features.ipynb notebook will create CSV files, which includes the file paths of S1-VV, S1-VH, DEM, JRC water, and Water labels chips for the model training.
 
 ### Model information
 First, the whole dataset was divided into two parts based on the water percentage (>=30% and <30%) of the Sentinel-1 water label chips. Then two U-Net models have been trained on those two datasets and final prediction was taken by combining the predictions of both models. 
