@@ -4,6 +4,10 @@ This repository contains a PyTorch implementation of a U-Net model for segmentin
 
 The model has been trained and evaluated on Cloud to Street - Microsoft flood dataset and it is composed of Sentinel-1 image chips with corresponding water labels.
 
+<p align="center">
+<img src="predictions/preds.gif" width="500" height="250" />
+</p>
+
 ### Repository Structure
 The repository is structured as follows:
 
@@ -46,10 +50,6 @@ python gee-pwater-data.py --cld_projid ee-xxxxxxx --in_dir data/chips/VV  --out_
 First, the whole dataset was divided into two parts based on the water percentage (>=30% and <30%) of the Sentinel-1 water label chips. Then two U-Net models have been trained on those two datasets and final prediction was taken by combining the predictions of both models. 
 
 The combined prediction achieves an average Intersection over Union (IoU) of 0.877 on the test set.
-
-<p align="center">
-<img src="predictions/preds.gif" width="500" height="250" />
-</p>
 
 #### Acknowledgments
 The implementation is based on the original U-Net paper: https://arxiv.org/abs/1505.04597.
