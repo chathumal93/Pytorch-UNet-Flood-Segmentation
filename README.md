@@ -15,7 +15,7 @@ The repository is structured as follows:
 * models/: contains the trained U-Net models
 * predictions/: contains the predictions of trained U-Net models
 * runs/ : contains tensorboard log files
-* make-dataset.py : the script extract and perform tiling (256*256) on sentinel-1 VV VH and water labels chips
+* make-dataset.py : the script extract and perform tiling (256*256) on Sentinel-1 VV VH and water labels chips
 * gee-dem-data.py : the script to download the SRTM DEM tiles from Google Earth Engine
 * gee-pwater-data.py : the script to download the JRC permanent water tiles from Google Earth Engine
 * helpers.py : helper functions for gee-dem-data.py, gee-pwater-data.py and make-dataset.py
