@@ -26,13 +26,13 @@ The repository is structured as follows:
 * Download Sentinel-1 data for the Cloud to Street - Microsoft flood dataset (*c2smsfloods_v1_source_s1.tar.gz*) and Sentinel-1 water labels for the Cloud to Street - Microsoft flood dataset (*c2smsfloods_v1_labels_s1_water.tar.gz*) from https://mlhub.earth/data/c2smsfloods_v1.
 
 #### Step 2
-* Run the following scripts
+* Run the following scripts 
 ```bash
 python make-dataset.py --proj_dir path/to/project-directory --chips path/to/c2smsfloods_v1_source_s1.tar.gz  --labels path/to/c2smsfloods_v1_labels_s1_water.tar.gz
 ```
 * make-dataset.py script will create data , data/chips/VV, data/chips/VH, and data/labels directories. (The final tile size of the S1 chips is 256*256 with a resolution of 10 m)
-
-* Google Earth Engine cloud project id is needed to run the below scripts.
+* Below scripts will download the additional data needed for model training. (STRM DEM and JRC Permanent Water data)
+* Google Earth Engine cloud project id is needed here.
 ```bash
 python gee-dem-data.py --cld_projid ee-xxxxxxx --in_dir data/chips/VV  --out_dir data
 ```
@@ -40,6 +40,9 @@ python gee-dem-data.py --cld_projid ee-xxxxxxx --in_dir data/chips/VV  --out_dir
 python gee-pwater-data.py --cld_projid ee-xxxxxxx --in_dir data/chips/VV  --out_dir data
 ```
 * gee-dem-data.py and gee-pwater-data.py scripts will create data/dem and data/pwater directories respectively.
+
+#### Step 3
+make-features.ipynb notebook will create CSV files, which includes the file paths of S1-VV, S1-VH, DEM, JRC water, and Water labels chips for the model training.
 
 ### Model information
 First, the whole dataset was divided into two parts based on the water percentage (>=30% and <30%) of the Sentinel-1 water label chips. Then two U-Net models have been trained on those two datasets and final prediction was taken by combining the predictions of both models. 
