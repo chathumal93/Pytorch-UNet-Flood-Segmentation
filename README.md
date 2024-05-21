@@ -27,7 +27,7 @@ The repository is structured as follows:
 
 ### Preparation of data 
 #### Step 1
-* Download Sentinel-1 data for the Cloud to Street - Microsoft flood dataset (*c2smsfloods_v1_source_s1.tar.gz*) and Sentinel-1 water labels for the Cloud to Street - Microsoft flood dataset (*c2smsfloods_v1_labels_s1_water.tar.gz*) from https://mlhub.earth/data/c2smsfloods_v1.
+* Download Sentinel-1 data from the Cloud to Street - Microsoft flood dataset (*c2smsfloods_v1_source_s1.tar.gz*) and Sentinel-1 water labels from the Cloud to Street - Microsoft flood dataset (*c2smsfloods_v1_labels_s1_water.tar.gz*) from https://mlhub.earth/data/c2smsfloods_v1.
 
 #### Step 2
 * Run the following scripts 
